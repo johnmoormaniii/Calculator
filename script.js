@@ -7,6 +7,8 @@ const btnOperation = document.querySelectorAll('[data-operation]')
 const btnEquals = document.querySelector('[data-equals]')
 const btnDelete = document.querySelector('[data-delete]')
 const btnAllClear = document.querySelector('[data-allClear]')
+const btnRotate = document.querySelector('[data-secret-rotate]')
+const btnUnrotate = document.querySelector('[data-secret-unrotate]')
 
 const currentOperand = document.querySelector('[data-current-operand]')
 const previousOperand = document.querySelector('[data-previous-operand]')
@@ -107,7 +109,20 @@ function keyboardHandler(e){
         typeOfComputation(e.key);
     };
     if (e.key === 'Enter') {compute()};
-}
+};
+
+function classAddRotate(){
+    let calculatorRotate = document.querySelector('.calculator');
+    calculatorRotate.classList.add('rotated-calculator');
+    console.log(calculatorRotate.classList);
+};
+
+function classRemoveRotate(){
+    let calculatorUnrotate = document.querySelector('.calculator');
+    calculatorUnrotate.classList.remove('rotated-calculator');
+    console.log(calculatorUnrotate.classList);
+};
+
 
 
 // ---------- BUTTON EVENT LISTENERS ---------------------------------------------------------
@@ -124,9 +139,12 @@ btnOperation.forEach(function(button){
         updatePreviousOperand(currentOperand.textContent);
         typeOfComputation(button.textContent);
     })
-})
+});
 
 btnAllClear.addEventListener('click', allClear)
 btnDelete.addEventListener('click', deleteNumber)
 btnEquals.addEventListener('click', compute);
 window.addEventListener('keydown', keyboardHandler);
+
+btnRotate.addEventListener('click', classAddRotate);
+btnUnrotate.addEventListener('click', classRemoveRotate);

@@ -1,48 +1,96 @@
 @import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
 
 *, *::before, *::after{
-    box-sizing: border-box;
     font-family: 'Teko', sans-serif;
-    font-weight: normal;
-    font-size: 50px;
+    font-size: 1.5rem;
 }
 
 body{
-    margin: 0;
-    padding: 0;
-    background-color: lightblue;
     height: 100vh;
     width: 100vw;
+    margin: 0;
+    padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+    background-color: lightgray;
 }
 
-.calculator-grid{
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    border: 1px solid black;
-    width: 400px;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(6, 100px);
-}
-
-.span-two{
-    grid-column: span 2;
+.calculator{
+    background-color: darkslategray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 700px;
+    width: 425px;
+    padding: 10px;
+    border-radius: 25px;
+    margin-bottom: 0px;
 }
 
 .output{
-    grid-column: 1 / -1;
-    background-color: lightseagreen;
+    height: 200px;
+    width: 385px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-around;
     padding: 15px;
+    background-color: rgba(250,250,250,.75);
+    margin: 10px;
+    border: 5px solid black;
+    border-radius: 25px;
+}
+    .previous-operand{
+        margin: 0;
+        padding: 0;
+    }
+
+    .current-operand{
+        margin: 0;
+        padding: 0;
+    }
+
+.button-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(5, 100px);
+    gap: 5px;
+    margin: 5px;
 }
 
-.calculator-grid button{
+    .span-two{
+        grid-column: span 2;
+    }
+
+.button-grid > button{
     outline: none;
+    background-color: rgba(250,250,250,1);
+    border: none;
     cursor: pointer;
+    border-radius: 5px;
+}
+
+.button-grid > button:hover{
+    background-color: rgba(250,250,250,.9);
+}
+
+.secret-buttons{
+    display: flex;
+}
+
+.secret-buttons > button{
+    width: 40px;
+    cursor: pointer;
+    height: 20px;
+    margin: 15px;
+    margin-top: 0px;
+    background-color: lightgray;
+    border: none;
+}
+
+.rotated-calculator{
+    transform: rotate(180deg);
 }
